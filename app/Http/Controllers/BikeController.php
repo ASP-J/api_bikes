@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class BikeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:bikes index')->only('index');
+        $this->middleware('permission:bikes show')->only('show');
+        $this->middleware('permission:bikes store')->only('store');
+        $this->middleware('permission:bikes uptade')->only('update');
+        $this->middleware('permission:bikes destroy')->only('destroy');
+    }
     public function index()
     {
         $bikes = Bike::all();
@@ -20,6 +28,7 @@ class BikeController extends Controller
     {
         $data = $request->validated();
         $bike = Bike::create($data);
+        $bike->assignRole($data['role']);
         return BikeResource::make($bike);
     }
     public function show($id)

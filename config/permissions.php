@@ -7,6 +7,12 @@
             'store',
             'update',
             'destroy',
-
         ],
+        'bikes'=>[
+            'index',
+            'show',
+            'store',
+            'update',
+            'destroy',
+        ]
     ];

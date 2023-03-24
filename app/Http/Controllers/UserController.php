@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -20,8 +20,12 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = QueryBuilder::for(User::class)
+            ->allowedFilters(['name', 'user', 'email','document','role'])
+            ->paginate(10)
+            ->appends(request()->query());
         return UserResource::collection($users);
+
     }
 
 
