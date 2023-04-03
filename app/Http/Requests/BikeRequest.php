@@ -26,8 +26,10 @@ class BikeRequest extends FormRequest
         return [
             'client_id'=> 'required|string|exists:clients,id',
             'user_id'=> 'required|string|exists:users,id',
-            'quantity'=> 'required|string|min:8',
-            'color'=> 'required|string|max:14'
+            'quantity'=> 'required|string|',
+            'color'=> 'required|string|max:14',
+            'status'=>'required|string|',
+            'price'=>'required|integer',
         ];
     }
 }

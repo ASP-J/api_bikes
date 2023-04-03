@@ -28,7 +28,6 @@ class BikeController extends Controller
     {
         $data = $request->validated();
         $bike = Bike::create($data);
-        $bike->assignRole($data['role']);
         return BikeResource::make($bike);
     }
     public function show($id)

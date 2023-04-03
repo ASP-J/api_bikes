@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 
 class ClientController extends Controller
 {
+
     public function index()
     {
         $clients = Client::all();
@@ -21,7 +22,6 @@ class ClientController extends Controller
     public function store(ClientRequest $request)
     {
         $data = $request->validated();
-       
         $client = Client::create($data);
         return ClientResource::make($client);
     }

@@ -14,5 +14,6 @@
             'store',
             'update',
             'destroy',
-        ]
+        ],
+
     ];

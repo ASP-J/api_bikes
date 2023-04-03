@@ -10,7 +10,7 @@ class Bike extends Model
     use HasFactory;
     protected $table ='bikes';
     protected $primaryKey ='id';
-    protected $fillable =['client_id','user_id','quantity','color'];
+    protected $fillable =['client_id','user_id','quantity','color','status','price'];
 
     public function user()
     {
